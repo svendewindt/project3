@@ -14,6 +14,6 @@
 
 ## Azure DSC
 
-* met TFS? een build? [https://docs.microsoft.com/en-us/powershell/dsc/overview](https://docs.microsoft.com/en-us/powershell/dsc/overview)
+* [https://docs.microsoft.com/en-us/powershell/dsc/overview](https://docs.microsoft.com/en-us/powershell/dsc/overview)
 * [https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview)
 * [https://www.powershellgallery.com/](https://www.powershellgallery.com/)

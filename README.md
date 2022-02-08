@@ -52,4 +52,4 @@ An overview of the components
 
 To run all scripts in the correct order, I've supplied a `start.ps1` [:memo:](./Start.ps1) script. This is a script that calls all other scripts. To tear down all resources created in Azure, I also provided a `DeleteAzureResources.ps1` [:memo:](./DeleteAzureResources.ps1) script. Besides these two scripts all other scripts are located in the `./scripts` folder.
 
-[Index](./docs/index.md) - [Volgende](./docs/1.CreateAnAzureAutomationAccount.md)
+[Index](./docs/index.md) - [Next](./docs/1.CreateAnAzureAutomationAccount.md)
