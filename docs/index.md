@@ -1,0 +1,15 @@
+# Index
+
+- [Create an Azure automation account](./1.CreateAnAzureAutomationAccount.md)
+- [Create the machines](./2.CreateTheMachines.md)
+- [Request certificate for the environment](./3.RequestCertificateForTheEnvironment.md)
+- [Create the RDS farm](./4.CreateTheRDSFarm.md)
+- [Publish the RDS applications](./5.PublishTheRDSAppllications.md)
+- [Office 365 Trial](./6.Office365Trial.md)
+- [Synchronize on premise Active Directory with Office 365](./7.SyncronizeOnPremAD.md)
+- [Link Azure subscription with Office 365 subscription](./8.LinkAzureSubscription.md)
+- [Enterprise Mobility and Security](./9.EMS.md)
+- [Branding](./10.Branding.md)
+- [Publish Application with Azure AD Connect](./11.PublishApplication.md)
+- [Azure ID protection](./12.AzureIDProtection.md)
+- [Intune](./13.Intune.md)

@@ -1,0 +1,29 @@
+# group_vars/all.yml
+# Variables visible to all nodes
+---
+
+rhbase_start_services:
+  - firewalld
+rhbase_selinux_state:
+  enforcing
+rhbase_repositories:
+  - epel-release
+rhbase_install_packages:
+  - bash-completion
+  - bind-utils
+  - git
+  - nano
+  - tree
+  - vim-enhanced
+  - wget
+rhbase_users:
+  - name: sven
+    comment: Administrator
+    groups:
+      - wheel
+    # password: vagrant with crypt-sha512 encryption on https://www.mkpasswd.net/index.php
+    password: '$6$JXxP4YCJlNElEWeb$boHuCqwpddo8To8rtUDDiIDyvD7RebhZxFeaZYeCq..q.64WEAAoVBcD0CKj6kK6bQ69kI.kRkKvTtEmusR2i1'
+rhbase_ssh_user: 
+  sven
+rhbase_ssh_key: 
+  'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8G3S0fwwnBmUrELCw3Mp9L5IH0nC9oEFye6R2hy6k0E2mkAHRz5uQKd9ryuBwhkG4xpfdOXbB+9257ZCan8CjIolHyvf4D7TLRLP8KpOGOoQmnNXnsicuecir5yZsAYdZk8lwqgh1PVIuLDVUx1sCNIkhIEomFkfC2GXB/gJZjRaJwCMmY98affJbeHGVN3ELdZD+sxyD8wGVQ0O46GRP3ilunv+3V41+OBDYoMPNrngtsBi3YMmT5+FKUvq0Ou/nrKxXOkpjhYrHmpGYrqU04c02xpv+tSu0Qac4HZNh+A2kLKenYi9fBCynOibbLlOqxYt2aIO6IenPXwkeaKiJ administrator@wsw10-test'

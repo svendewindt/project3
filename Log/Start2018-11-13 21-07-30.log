@@ -1,0 +1,240 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20181113210730
+Username: WSW10-TEST\Administrator
+RunAs User: WSW10-TEST\Administrator
+Configuration Name: 
+Machine: WSW10-TEST (Microsoft Windows NT 10.0.17134.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 1784
+PSVersion: 5.1.17134.112
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.17134.112
+BuildVersion: 10.0.17134.112
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\_Repo\p3ops-tile\Sven\Log\Start2018-11-13 21-07-30.log
+1. Setting up Azure
+----------------------------------------------------------------
+1.1. Create Azure Automation Account
+C:\_Repo\p3ops-tile\Sven\scripts\CreateAutomationAccount.ps1 -verbose
+Start script - version 0.1
+Installing and importing necessary Azure modules
+VERBOSE: Login on to Azure
+
+
+Account          : sven.de.windt@gmail.com
+SubscriptionName : Visual Studio Premium with MSDN
+SubscriptionId   : 44f6c122-4f0b-43dc-989b-9b042a15e063
+TenantId         : e91b7204-017a-4b15-94ff-8b962e97784c
+Environment      : AzureCloud
+
+VERBOSE: Create the resource group
+VERBOSE: 21:07:44 - Created resource group 'Automation' in location 'westeurope'
+
+ResourceGroupName : Automation
+Location          : westeurope
+ProvisioningState : Succeeded
+Tags              :
+TagsTable         :
+ResourceId        : /subscriptions/44f6c122-4f0b-43dc-989b-9b042a15e063/resourceGroups/Automation
+
+VERBOSE: Creating Automation account
+VERBOSE: Get Automation account info
+VERBOSE: Creating password
+VERBOSE: Creating application in Azure
+VERBOSE: Creating service principal for application
+VERBOSE: No scope provided - using the default scope '/subscriptions/44f6c122-4f0b-43dc-989b-9b042a15e063'
+VERBOSE: No role provided - using the default role 'Contributor'
+VERBOSE: No start date provided - using the current time as default.
+VERBOSE: No end date provided - using the default value of one year after the start date.
+VERBOSE: No display name provided - using the default display name of 'azure-powershell-11-13-2018-20-07-47'
+VERBOSE: Skipping role assignment for the service principal.
+VERBOSE: Saving Specs
+VERBOSE: Wait a few seconds for the ServicePrincipal to become active
+VERBOSE: Assigning contributor role to service principal
+
+RoleAssignmentId   : /subscriptions/44f6c122-4f0b-43dc-989b-9b042a15e063/providers/Microsoft.Authorization/roleAssignme
+                     nts/d4af9641-b876-4e89-9e33-ad1217f71b9e
+Scope              : /subscriptions/44f6c122-4f0b-43dc-989b-9b042a15e063
+DisplayName        : PowershellAutomation
+SignInName         :
+RoleDefinitionName : Contributor
+RoleDefinitionId   : b24988ac-6180-42a0-ab88-20f7382dd24c
+ObjectId           : 12858420-1c7c-488a-9da3-7a43e3e418e8
+ObjectType         : ServicePrincipal
+CanDelegate        : False
+
+
+Ticks             : 849270223
+Days              : 0
+Hours             : 0
+Milliseconds      : 927
+Minutes           : 1
+Seconds           : 24
+TotalDays         : 0,000982951646990741
+TotalHours        : 0,0235908395277778
+TotalMilliseconds : 84927,0223
+TotalMinutes      : 1,41545037166667
+TotalSeconds      : 84,9270223
+
+----------------------------------------------------------------
+1.2. Create credentials in Azure Automation Account
+C:\_Repo\p3ops-tile\Sven\scripts\CreateCredentialsInAutomationAccount.ps1 -AutomationContextFile C:\_Repo\p3ops-tile\Sven\AutomationContext.json -UserName Administrator -Password vagrant -AutomationCredentialName AdminTile -DomainName tile.lan -Verbose
+Start script - version 0.1
+VERBOSE: Getting automation context
+VERBOSE: Login on Azure, using serviceprincipal
+Account          : 19d2b519-2c62-4239-b007-c599d0d4011d
+SubscriptionName : Visual Studio Premium with MSDN
+SubscriptionId   : 44f6c122-4f0b-43dc-989b-9b042a15e063
+TenantId         : e91b7204-017a-4b15-94ff-8b962e97784c
+Environment      : AzureCloud
+
+VERBOSE: Get Automation account
+
+SubscriptionId        : 44f6c122-4f0b-43dc-989b-9b042a15e063
+ResourceGroupName     : Automation
+AutomationAccountName : PowershellAutomation
+Location              : westeurope
+State                 : Ok
+Plan                  : Basic
+CreationTime          : 13/11/2018 21:07:45 +01:00
+LastModifiedTime      : 13/11/2018 21:07:45 +01:00
+LastModifiedBy        :
+Tags                  : {}
+
+VERBOSE: Create credentials
+VERBOSE: Store credentials in Automation account
+
+UserName              : tile\Administrator
+ResourceGroupName     : Automation
+AutomationAccountName : PowershellAutomation
+Name                  : AdminTile
+CreationTime          : 13/11/2018 21:08:57 +01:00
+LastModifiedTime      : 13/11/2018 21:08:57 +01:00
+Description           :
+
+
+Ticks             : 877822390
+Days              : 0
+Hours             : 0
+Milliseconds      : 782
+Minutes           : 1
+Seconds           : 27
+TotalDays         : 0,00101599813657407
+TotalHours        : 0,0243839552777778
+TotalMilliseconds : 87782,239
+TotalMinutes      : 1,46303731666667
+TotalSeconds      : 87,782239
+
+----------------------------------------------------------------
+1.3. Upload WrapperScript to Azure
+C:\_Repo\p3ops-tile\Sven\scripts\UploadRunbook.ps1 -AutomationContextFile C:\_Repo\p3ops-tile\Sven\AutomationContext.json -ScriptPath C:\_Repo\p3ops-tile\Sven\scripts\WrapperForOnPremiseScripts.ps1 -Description 'Wrapper to run scripts on premise' -Verbose
+Start script - version 0.1
+VERBOSE: Getting automation context
+VERBOSE: Login on Azure, using serviceprincipal
+Account          : 19d2b519-2c62-4239-b007-c599d0d4011d
+SubscriptionName : Visual Studio Premium with MSDN
+SubscriptionId   : 44f6c122-4f0b-43dc-989b-9b042a15e063
+TenantId         : e91b7204-017a-4b15-94ff-8b962e97784c
+Environment      : AzureCloud
+
+VERBOSE: Import runbook C:\_Repo\p3ops-tile\Sven\scripts\WrapperForOnPremiseScripts.ps1
+
+Location              : westeurope
+Tags                  : {}
+JobCount              : 0
+RunbookType           : PowerShell
+Parameters            : {json}
+LogVerbose            : False
+LogProgress           : False
+LastModifiedBy        :
+State                 : Published
+ResourceGroupName     : Automation
+AutomationAccountName : PowershellAutomation
+Name                  : WrapperForOnPremiseScripts
+CreationTime          : 13/11/2018 21:08:59 +01:00
+LastModifiedTime      : 13/11/2018 21:09:00 +01:00
+Description           : Wrapper to run scripts on premise
+
+
+Ticks             : 911473191
+Days              : 0
+Hours             : 0
+Milliseconds      : 147
+Minutes           : 1
+Seconds           : 31
+TotalDays         : 0,00105494582291667
+TotalHours        : 0,02531869975
+TotalMilliseconds : 91147,3191
+TotalMinutes      : 1,519121985
+TotalSeconds      : 91,1473191
+
+----------------------------------------------------------------
+1.4. Create Operations Manager Suite account
+C:\_Repo\p3ops-tile\Sven\scripts\CreateOMSWorkspace.ps1 -AutomationContextFile C:\_Repo\p3ops-tile\Sven\AutomationContext.json -Verbose
+Start script - version 0.1
+VERBOSE: Getting automation context
+VERBOSE: Login on Azure, using serviceprincipal
+Account          : 19d2b519-2c62-4239-b007-c599d0d4011d
+SubscriptionName : Visual Studio Premium with MSDN
+SubscriptionId   : 44f6c122-4f0b-43dc-989b-9b042a15e063
+TenantId         : e91b7204-017a-4b15-94ff-8b962e97784c
+Environment      : AzureCloud
+
+VERBOSE: Create the resource group
+VERBOSE: 21:09:02 - Created resource group 'Automation' in location 'westeurope'
+
+ResourceGroupName : Automation
+Location          : westeurope
+ProvisioningState : Succeeded
+Tags              :
+TagsTable         :
+ResourceId        : /subscriptions/44f6c122-4f0b-43dc-989b-9b042a15e063/resourceGroups/Automation
+
+VERBOSE: Creating workspace OMSWorkspace1856 in the PerNode tier
+VERBOSE: Activate the Azure Automation solution in the workspace
+VERBOSE: Adding Intelligence packs
+VERBOSE: Adding AzureAutomation
+VERBOSE: Adding ServiceMap
+VERBOSE: Adding LogManagement
+VERBOSE: Adding NetworkMonitoring
+VERBOSE: Adding ChangeTracking
+VERBOSE: Adding AntiMalware
+VERBOSE: Adding Security
+VERBOSE: Saving specs to C:\_Repo\p3ops-tile\Sven\AutomationContext.json
+
+Ticks             : 1401021900
+Days              : 0
+Hours             : 0
+Milliseconds      : 102
+Minutes           : 2
+Seconds           : 20
+TotalDays         : 0,001621553125
+TotalHours        : 0,038917275
+TotalMilliseconds : 140102,19
+TotalMinutes      : 2,3350365
+TotalSeconds      : 140,10219
+
+----------------------------------------------------------------
+Finished
+
+Ticks             : 1401128055
+Days              : 0
+Hours             : 0
+Milliseconds      : 112
+Minutes           : 2
+Seconds           : 20
+TotalDays         : 0,00162167598958333
+TotalHours        : 0,03892022375
+TotalMilliseconds : 140112,8055
+TotalMinutes      : 2,335213425
+TotalSeconds      : 140,1128055
+
+**********************
+Windows PowerShell transcript end
+End time: 20181113210950
+**********************
